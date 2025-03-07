@@ -1,10 +1,23 @@
 import "./App.css";
-import Button from "./components/ui/Button/button";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import UsersList from "./pages/UsersList";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   return (
     <>
-      <Button variant={"destructive"}>Click me !</Button>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<UsersList />}
+          />
+          <Route
+            path="/user/:id"
+            element={<UserProfile />}
+          />
+        </Routes>
+      </Router>
     </>
   );
 }
